@@ -861,20 +861,42 @@ address {
 }
 
 .accept_form {
+  margin-left: 10px;
+  position: relative;
   width: 100%;
   display: flex;
   font-size: 14px;
   line-height: 1.71;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 27px;
   margin-bottom: 30px;
   text-align: center;
   color: #757575;
 }
 
-.accept_form input {
-  margin-top: 4px;
+.accept_box {
+  appearance: none;
+  position: absolute;
   margin-right: 7px;
+}
+
+.accept_icon {
+  margin-top: 4px;
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 15px;
+  border: 2px solid black;
+  border-radius: 2px;
+  left: 0%;
+}
+
+.accept_box:checked + .accept_icon {
+  border: none;
+  background-origin: border-box;
+  background-size: contain;
+  background-color: #2196f3;
+  background-image: url(../images/icon-check.svg);
 }
 
 .blue_offer a {
