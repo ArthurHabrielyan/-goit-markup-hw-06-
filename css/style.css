@@ -286,7 +286,7 @@ img {
 }
 
 /* Секция "Чем мы занимаемся" */
-.classes-section__title {
+.classes-section__heading {
   font-size: 36px;
   line-height: 1.16;
   text-align: center;
@@ -327,53 +327,11 @@ img {
   background-color: rgba(47, 48, 58, 0.8);
 }
 
-.clients > h2 {
-  text-align: center;
-  margin-bottom: 50px;
-  font-size: 36px;
-  line-height: 1.16;
-  letter-spacing: 0.03em;
-}
-
-.client_list {
-  display: flex;
-}
-
-.client_list_item {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.client_link {
-  display: inline-block;
-  padding: 16px 32px;
-  border: #afb1b8 1px solid;
-  border-radius: 4px;
-  transition: border 250ms var(--timing-function);
-}
-
-.client_icon {
-  width: 106px;
-  height: 60px;
-  fill: #afb1b8;
-  transition: fill 250ms var(--timing-function);
-}
-
-.client_link:hover,
-.client_link:focus {
-  border: #2196f3 1px solid;
-}
-
-.client_link:hover .client_icon,
-.client_link:focus .client_icon {
-  fill: #2196f3;
-}
-
 /* Section "Наша команда" */
+
 .team-section {
   background-color: #f5f4fa;
 }
-
 .team-section__title {
   font-size: 36px;
   line-height: 1.16;
@@ -401,13 +359,14 @@ img {
   border-radius: 0px 0px 4px 4px;
 }
 
-.team-list__img {
-  width: 270px;
-  margin-bottom: 30px;
+.team-list__item:not(:last-child) {
+  margin-right: 30px;
 }
 
-.team-list__img:not(:last-child) {
-  margin-right: 30px;
+.team-list__img {
+  width: 270px;
+
+  margin-bottom: 30px;
 }
 
 .team-list__heading {
@@ -434,22 +393,22 @@ img {
   margin-bottom: 30px;
 }
 
-.icon_list {
+.team-icon__list {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
 }
 
-.icon_item:not(:last-child) {
+.team-icon__item:not(:last-child) {
   margin-right: 10px;
 }
 
-.icon_item {
+.team-icon__item {
   width: 44px;
   height: 44px;
 }
 
-.icon_link {
+.team-icon__link {
   border-radius: 50%;
   width: 100%;
   height: 100%;
@@ -459,21 +418,65 @@ img {
   transition: background-color 250ms var(--timing-function);
 }
 
-.icon {
+.team-icon__link:hover,
+.team-icon__link:focus {
+  background-color: #2196f3;
+}
+
+.team-icon__svg {
   width: 20px;
   height: 20px;
   fill: #afb1b8;
   transition: fill 250ms var(--timing-function);
 }
 
-.icon_link:hover,
-.icon_link:focus {
-  background-color: #2196f3;
+.team-icon__link:hover .team-icon__svg,
+.team-icon__link:focus .team-icon__svg {
+  fill: #ffffff;
 }
 
-.icon_link:hover .icon,
-.icon_link:focus .icon {
-  fill: #ffffff;
+/* Clients section */
+
+.client__heading {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 36px;
+  line-height: 1.16;
+  letter-spacing: 0.03em;
+}
+
+.clients-list {
+  display: flex;
+}
+
+.clients-list__item {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clients-list__link {
+  display: inline-block;
+  padding: 16px 32px;
+  border: #afb1b8 1px solid;
+  border-radius: 4px;
+  transition: border 250ms var(--timing-function);
+}
+
+.clients-list__link:hover,
+.clients-list__link:focus {
+  border: #2196f3 1px solid;
+}
+
+.clients-list__icon {
+  width: 106px;
+  height: 60px;
+  fill: #afb1b8;
+  transition: fill 250ms var(--timing-function);
+}
+
+.clients-list__link:hover .clients-list__icon,
+.clients-list__link:focus .clients-list__icon {
+  fill: #2196f3;
 }
 
 /* Общий footer */
@@ -834,11 +837,33 @@ address {
   justify-content: center;
 }
 
-.speaker_form {
-  padding: 0 40px;
+.modal__button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  margin: -8px;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
-.modal b {
+.modal__button:hover .modal__icon,
+.modal__button:focus .modal__icon {
+  fill: #2196f3;
+}
+
+.modal__icon {
+  position: absolute;
+  fill: black;
+  transition: fill 250ms var(--timing-function);
+}
+
+.modal__text {
   display: block;
   margin-bottom: 12px;
   margin-top: 10px;
@@ -852,13 +877,21 @@ address {
   text-align: center;
 }
 
-.form_field {
+.fill-form {
+  padding: 0 40px;
+}
+
+.fill-form__field {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.form_field label {
+.fill-form__field:not(:first-child) {
+  margin-top: 10px;
+}
+
+.fill-form__label {
   color: #757575;
 
   font-size: 12px;
@@ -869,7 +902,7 @@ address {
   margin-bottom: 4px;
 }
 
-.form_field input {
+.fill-form__input {
   height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
@@ -877,26 +910,26 @@ address {
   padding-left: 42px;
 }
 
-.input_icon {
+.fill-form__input:focus ~ .fill-form__icon {
+  fill: #2196f3;
+}
+
+.fill-form__input:focus {
+  border: 1px solid #2196f3;
+}
+
+.fill-form__icon {
   display: inline-block;
   position: absolute;
   top: 50%;
   left: 12px;
 }
 
-.input_icon {
+.fill-form__icon {
   fill: #212121;
 }
 
-.input_form:focus ~ .input_icon {
-  fill: #2196f3;
-}
-
-.input_form:focus {
-  border: 1px solid #2196f3;
-}
-
-.textarea {
+.fill-form__textarea {
   resize: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
   box-sizing: border-box;
@@ -907,7 +940,7 @@ address {
   outline: none;
 }
 
-.textarea::placeholder {
+.fill-form__textarea::placeholder {
   font-family: Roboto;
   font-size: 14px;
   font-style: normal;
@@ -918,11 +951,7 @@ address {
   color: #75757580;
 }
 
-.form_field:not(:first-child) {
-  margin-top: 10px;
-}
-
-.accept_form {
+.fill-form__accept {
   margin-left: 10px;
   position: relative;
   width: 100%;
@@ -936,13 +965,21 @@ address {
   color: #757575;
 }
 
-.accept_box {
+.fill-form__checkbox {
   appearance: none;
   position: absolute;
   margin-right: 7px;
 }
 
-.accept_icon {
+.fill-form__checkbox:checked + .fill-form__accept-icon {
+  border: none;
+  background-origin: border-box;
+  background-size: contain;
+  background-color: #2196f3;
+  background-image: url(../images/icon-check.svg);
+}
+
+.fill-form__accept-icon {
   margin-top: 3px;
   display: inline-block;
   position: absolute;
@@ -953,20 +990,16 @@ address {
   left: 0%;
 }
 
-.accept_box:checked + .accept_icon {
-  border: none;
-  background-origin: border-box;
-  background-size: contain;
-  background-color: #2196f3;
-  background-image: url(../images/icon-check.svg);
+.fill-form__terms {
+  margin-left: 3px;
 }
 
-.blue_offer a {
+.fill-form__link {
   color: #2196f3;
   text-decoration: underline;
 }
 
-.send_button {
+.fill-form__submit {
   margin: auto;
   display: block;
 
@@ -982,33 +1015,7 @@ address {
   color: #fff;
 }
 
-.send_button:hover {
+.fill-form__submit {
   background-color: #188ce8;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14);
-}
-
-.modal_button {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-
-  margin: -8px;
-  margin-left: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-
-.modal_icon {
-  position: absolute;
-  fill: black;
-  transition: fill 250ms var(--timing-function);
-}
-
-.modal_button:hover .modal_icon,
-.modal_button:focus .modal_icon {
-  fill: #2196f3;
 }
